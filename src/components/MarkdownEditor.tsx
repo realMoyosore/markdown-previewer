@@ -47,6 +47,7 @@ import { marked } from 'marked';
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown as markdownLang } from '@codemirror/lang-markdown';
 import { okaidia } from '@uiw/codemirror-theme-okaidia';
+import { Toolbar } from './Toolbar';
 
 const defaultMarkdown = `
 # Welcome to my React Markdown Previewer!
@@ -56,14 +57,40 @@ const defaultMarkdown = `
 `;
 
 export function MarkdownEditor() {
-  const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
+    const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
+    
+    const handleFileLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target?.result as string;
+        setMarkdown(text);
+      };
+      reader.readAsText(file);
+    }
+    };
+    
+    const handleFileSave = () => {
+    const blob = new Blob([markdown], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'document.md';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   const getMarkdownText = () => {
     const rawMarkup = marked(markdown, { breaks: true, gfm: true });
     return { __html: rawMarkup };
   };
 
-  return (
+    return (
+        <div>
+            <Toolbar onLoadFile={handleFileLoad} onSaveFile={handleFileSave} />
     <main className="flex flex-col md:flex-row h-screen bg-gray-100 dark:bg-gray-900">
       <div className="w-full md:w-1/2">
         {/* The CodeMirror component replaces the textarea */}
@@ -86,6 +113,7 @@ export function MarkdownEditor() {
           className="prose dark:prose-invert"
         />
       </div>
-    </main>
+            </main>
+            </div>
   );
 }
