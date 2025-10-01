@@ -9,7 +9,7 @@ A comprehensive Markdown Preview application built with React, TypeScript, and T
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices.
 - **File Operations**: Upload `.md` files from your local machine and save your work.
 - **Local Storage**: Your work is automatically saved in your browser.
-- **API Integration**: (Bonus) Save and load your content from a remote server.
+- **API Integration**: Save and load your content from a remote server.
 - **Error Handling**: A robust app with a custom Error Boundary and 404 page.
 
 ## Technology Stack
@@ -19,7 +19,7 @@ A comprehensive Markdown Preview application built with React, TypeScript, and T
 - **Routing**: React Router v7
 - **Styling**: Tailwind CSS
 - **Markdown Parsing**: `marked.js`
-- **Editor**: CodeMirror (`@uiw/react-codemirror`)
+- **Syntax Highlighting**: CodeMirror (`@uiw/react-codemirror`)
 - **Icons**: `react-icons`
 
 ## Installation and Setup
@@ -27,13 +27,13 @@ A comprehensive Markdown Preview application built with React, TypeScript, and T
 1. **Clone the repository:**
 
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/realMoyosore/markdown-previewer.git
     ```
 
 2. **Navigate to the project directory:**
 
     ```bash
-    cd markdown-preview-app
+    cd markdown-previewer
     ```
 
 3. **Install dependencies:**
