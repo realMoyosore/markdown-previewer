@@ -104,11 +104,56 @@ export function MarkdownEditor() {
   const getMarkdownText = () => {
     const rawMarkup = marked(markdown, { breaks: true, gfm: true });
     return { __html: rawMarkup };
+    };
+    
+    const [isLoading, setIsLoading] = useState(false);
+  const [lastPostId, setLastPostId] = useState<number | null>(null);
+
+  const handleSaveToApi = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: 'My Markdown Content',
+          body: markdown,
+          userId: 1,
+        }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      });
+      const data = await response.json();
+      setLastPostId(data.id);
+      alert(`Content saved with ID: ${data.id}`);
+    } catch (error) {
+      console.error('Failed to save content:', error);
+      alert('Error saving content.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleLoadFromApi = async () => {
+    const id = prompt("Enter the ID of the content to load:", String(lastPostId || ''));
+    if (!id) return;
+
+    setIsLoading(true);
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      if (!response.ok) throw new Error('Post not found');
+      const data = await response.json();
+      setMarkdown(data.body);
+      setLastPostId(data.id);
+    } catch (error) {
+      console.error('Failed to load content:', error);
+      alert('Error loading content.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
     return (
         <div>
-            <Toolbar onLoadFile={handleFileLoad} onSaveFile={handleFileSave} />
+            <Toolbar onLoadFile={handleFileLoad} onSaveFile={handleFileSave} onSaveToApi={handleSaveToApi} onLoadFromApi={handleLoadFromApi} />
     <main className="flex flex-col md:flex-row h-screen bg-gray-100 dark:bg-gray-900">
       <div className="w-full md:w-1/2">
         {/* The CodeMirror component replaces the textarea */}

@@ -3,9 +3,11 @@ import { FaFileUpload, FaSave } from 'react-icons/fa';
 interface ToolbarProps {
   onLoadFile: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSaveFile: () => void;
+  onSaveToApi: () => void;
+  onLoadFromApi: () => void;
 }
 
-export function Toolbar({ onLoadFile, onSaveFile }: ToolbarProps) {
+export function Toolbar({ onLoadFile, onSaveFile, onSaveToApi, onLoadFromApi }: ToolbarProps) {
   return (
     <header className="bg-gray-800 text-white p-2 flex items-center space-x-4">
       <h1 className="text-lg font-bold">Markdown Previewer</h1>
@@ -16,6 +18,12 @@ export function Toolbar({ onLoadFile, onSaveFile }: ToolbarProps) {
         </label>
         <button onClick={onSaveFile} className="p-2 rounded hover:bg-gray-700" aria-label="Save file">
           <FaSave />
+              </button>
+        <button onClick={onSaveToApi} className="p-2 rounded hover:bg-gray-700" aria-label="Save to API">
+          Save to API
+        </button>
+        <button onClick={onLoadFromApi} className="p-2 rounded hover:bg-gray-700" aria-label="Load from API">
+          Load from API
         </button>
       </div>
     </header>
