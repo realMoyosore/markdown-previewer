@@ -42,7 +42,7 @@
 
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown as markdownLang } from '@codemirror/lang-markdown';
@@ -56,8 +56,26 @@ const defaultMarkdown = `
 ### And here's some other cool stuff:
 `;
 
+const LOCAL_STORAGE_KEY = 'markdown-content';
+
 export function MarkdownEditor() {
-    const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
+    // const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
+
+    // Load from local storage on initial render
+  const [markdown, setMarkdown] = useState<string>(() => {
+    return localStorage.getItem(LOCAL_STORAGE_KEY) || defaultMarkdown;
+  });
+
+  // Save to local storage whenever markdown changes
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      localStorage.setItem(LOCAL_STORAGE_KEY, markdown);
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [markdown]);
     
     const handleFileLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -106,7 +124,7 @@ export function MarkdownEditor() {
           }}
         />
       </div>
-      <div className="w-full md:w-1/2 p-4 overflow-y-auto"> {/* Added overflow-y-auto */}
+      <div className="w-full md:w-1/2 p-4 overflow-y-auto"> 
         <div
           id="preview"
           dangerouslySetInnerHTML={getMarkdownText()}
