@@ -1,47 +1,3 @@
-// import { useState } from 'react';
-// import { marked } from 'marked';
-
-// const defaultMarkdown = `
-// # Welcome to my React Markdown Previewer!
-
-// ## This is a sub-heading...
-// ### And here's some other cool stuff:
-// `;
-
-// export function MarkdownEditor() {
-//   const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
-
-//   const getMarkdownText = () => {
-//     const rawMarkup = marked(markdown, { breaks: true, gfm: true });
-//     return { __html: rawMarkup };
-//   };
-
-//   return (
-//     <main className="flex flex-col md:flex-row h-screen bg-gray-100 dark:bg-gray-900">
-//       <div className="w-full md:w-1/2 p-4">
-//         <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Editor</h2>
-//         <textarea
-//           value={markdown}
-//           onChange={(e) => setMarkdown(e.target.value)}
-//           className="w-full h-full p-2 border rounded-md bg-white dark:bg-gray-800 dark:text-white"
-//           aria-label="Markdown Input"
-//         />
-//       </div>
-//       <div className="w-full md:w-1/2 p-4">
-//         <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Preview</h2>
-//         <div
-//           id="preview"
-//           dangerouslySetInnerHTML={getMarkdownText()}
-//           className="prose dark:prose-invert w-full h-full p-2 border rounded-md bg-white dark:bg-gray-800"
-//           aria-label="Markdown Preview"
-//         />
-//       </div>
-//     </main>
-//   );
-// }
-
-
-
 import { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import CodeMirror from '@uiw/react-codemirror';
@@ -59,7 +15,6 @@ const defaultMarkdown = `
 const LOCAL_STORAGE_KEY = 'markdown-content';
 
 export function MarkdownEditor() {
-    // const [markdown, setMarkdown] = useState<string>(defaultMarkdown);
 
     // Load from local storage on initial render
   const [markdown, setMarkdown] = useState<string>(() => {

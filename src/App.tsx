@@ -1,13 +1,3 @@
-// import { MarkdownEditor } from './components/MarkdownEditor';
-
-// function App() {
-//   return <MarkdownEditor />;
-// }
-
-// export default App;
-
-
-// src/App.tsx
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ErrorTestPage from './pages/ErrorTestPage';
