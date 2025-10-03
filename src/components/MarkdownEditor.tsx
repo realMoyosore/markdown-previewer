@@ -8,8 +8,29 @@ import { Toolbar } from './Toolbar';
 const defaultMarkdown = `
 # Welcome to my React Markdown Previewer!
 
-## This is a sub-heading...
-### And here's some other cool stuff:
+## Your sub-headings go here...
+
+### Other text can be **bold** or _italic_.
+#### You can also combine them... **_bold and italic!_** \`<div></div>\`
+#### And of course, there are lists:
+
+1. First ordered list item
+2. Second ordered list item
+3. Third ordered list item
+
+- Unordered list item 1
+- Unordered list item 2
+- Unordered list item 3
+
+You can add logos like this one:
+![React Logo](https://cdn.iconscout.com/icon/free/png-256/react-1-282599.png)
+
+And of course, links:
+[Visit React](https://react.dev)
+
+Feel free to edit this markdown and see the preview update in real-time!
+
+Happy coding! \`:) \`
 `;
 
 const LOCAL_STORAGE_KEY = 'markdown-content';
