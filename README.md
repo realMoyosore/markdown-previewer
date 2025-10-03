@@ -1,6 +1,16 @@
-# React Markdown Previewer
+# Markdown Previewer
 
-A comprehensive Markdown Preview application built with React, TypeScript, and Tailwind CSS. It features real-time rendering, syntax highlighting, file operations, and persistence.
+Markdown Previewer is a browser-based Markdown editor that provides a seamless, side-by-side live preview of your rendered document. Built with a modern tech stack, this project demonstrates advanced frontend engineering principles, including real-time rendering, robust error handling, local and remote data persistence, and a strong commitment to accessibility.
+
+## Live Demo
+
+[Markdown Previewer]()
+
+## About The Project
+
+This application was developed to showcase proficiency in building modern, interactive, and resilient web applications using React. It goes beyond a simple text-to-HTML converter by integrating a professional-grade editor, file system interactions, and data persistence strategies, all wrapped in a clean, responsive, and accessible user interface.
+
+The primary goal is to provide users with an intuitive and efficient tool for writing and previewing Markdown, whether for note-taking, documentation, or content creation.
 
 ## Features
 
