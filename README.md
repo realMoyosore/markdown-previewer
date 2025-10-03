@@ -56,5 +56,4 @@ A comprehensive Markdown Preview application built with React, TypeScript, and T
 - [ ] Add more editor themes and customization options.
 
 ---
-
-[Moyosore Sulola](https://www.linkedin.com/in/moyosore-sulola/)
+An AltSchool Africa Project - Designed by [Moyosore Sulola](https://www.linkedin.com/in/moyosore-sulola/)
