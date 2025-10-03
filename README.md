@@ -54,3 +54,7 @@ A comprehensive Markdown Preview application built with React, TypeScript, and T
 - [ ] Implement a proper backend service instead of a placeholder API.
 - [ ] Add user authentication for saving/loading personal documents.
 - [ ] Add more editor themes and customization options.
+
+---
+
+[Moyosore Sulola](https://www.linkedin.com/in/moyosore-sulola/)
