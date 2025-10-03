@@ -57,11 +57,11 @@ export function MarkdownEditor() {
   };
 
   const getMarkdownText = () => {
-    const rawMarkup = marked(markdown, { breaks: true, gfm: true });
+    const rawMarkup = marked.parse(markdown, { breaks: true, gfm: true });
     return { __html: rawMarkup };
     };
     
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [lastPostId, setLastPostId] = useState<number | null>(null);
 
   const handleSaveToApi = async () => {
@@ -108,7 +108,7 @@ export function MarkdownEditor() {
 
     return (
         <div>
-            <Toolbar onLoadFile={handleFileLoad} onSaveFile={handleFileSave} onSaveToApi={handleSaveToApi} onLoadFromApi={handleLoadFromApi} />
+            <Toolbar onLoadFile={handleFileLoad} onSaveFile={handleFileSave} onSaveToApi={handleSaveToApi} onLoadFromApi={handleLoadFromApi} isLoading={isLoading} />
     <main className="flex flex-col md:flex-row h-screen bg-gray-100 dark:bg-gray-900">
       <div className="w-full md:w-1/2">
         {/* The CodeMirror component replaces the textarea */}
