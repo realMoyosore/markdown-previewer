@@ -2,10 +2,6 @@
 
 Markdown Previewer is a browser-based Markdown editor that provides a seamless, side-by-side live preview of your rendered document. Built with a modern tech stack, this project demonstrates advanced frontend engineering principles, including real-time rendering, robust error handling, local and remote data persistence, and a strong commitment to accessibility.
 
-## Live Demo
-
-[Markdown Previewer]()
-
 ## About The Project
 
 This application was developed to showcase proficiency in building modern, interactive, and resilient web applications using React. It goes beyond a simple text-to-HTML converter by integrating a professional-grade editor, file system interactions, and data persistence strategies, all wrapped in a clean, responsive, and accessible user interface.
